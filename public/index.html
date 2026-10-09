@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OFFside — Custom apparel manufacturer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{/* SIGNATURE (default) */--bg:#0A1226;--ink:#EEF0F3;--mute:#9AA3B5;--line:#24304D;--card:#111C38;--ph:#17233F;
+--deep:#0E1A33;--on-deep:#F2F2EF;--deep-mute:#B9C1D3;--accent:#C8302E;--accent-on:#fff;--hl:#C8302E;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{/* LIGHT — from client palette */--bg:#EEEDE0;--ink:#2A2118;--mute:#574838;--line:#BDB0A3;--card:#F6F5EC;--ph:#E2DDCE;
+--deep:#2A2118;--on-deep:#EEEDE0;--deep-mute:#BDB0A3;--accent:#6E5E4E;--accent-on:#EEEDE0;--hl:#BDB0A3}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font:400 16px/1.6 'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+h1,h2,h3,.disp{font-family:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;font-weight:800;line-height:.95;text-transform:uppercase}
+h1{font-size:clamp(3.2rem,12vw,7.5rem)}h2{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:.5em}h3{font-size:1.6rem;margin-bottom:.3em}
+p{max-width:62ch;color:var(--mute)}a{color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+section{padding:64px 0}.alt{background:var(--card)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:900;font-size:1.9rem;text-decoration:none;letter-spacing:.01em}.logo i{color:var(--accent);font-style:normal}
+nav{display:flex;gap:22px;align-items:center}nav a{text-decoration:none;font-weight:500;font-size:.95rem}nav a.on{border-bottom:2px solid var(--accent)}
+.tgl,#mb{background:none;border:1px solid var(--line);color:inherit;padding:.4em .8em;border-radius:2px;font:inherit;cursor:pointer}#mb{display:none}.bar .r{display:flex;gap:8px;align-items:center}
+@media(max-width:860px){#mb{display:block}nav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg);flex-direction:column;align-items:flex-start;padding:16px 20px;border-bottom:1px solid var(--line)}nav.open{display:flex}}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-on);padding:.8em 1.4em;border-radius:2px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.ghost{background:none;color:inherit;border-color:currentColor}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hero{background:var(--deep);color:var(--on-deep);padding:48px 0 64px}.hero p{color:var(--deep-mute);margin:20px 0 28px}
+.hero .wrap{display:grid;gap:32px;grid-template-columns:1.2fr 1fr;align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1 span{display:block}.hero h1 span:nth-child(2){color:var(--hl)}
+.ph{background:repeating-linear-gradient(135deg,var(--ph) 0 10px,transparent 10px 20px),var(--card);border:1px dashed var(--line);display:grid;place-items:center;color:var(--mute);font-size:.8rem;text-align:center;padding:12px;width:100%}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.grid.l{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);padding:20px;display:flex;flex-direction:column;gap:10px}
+.card p{font-size:.95rem}.card a.btn{align-self:flex-start;margin-top:auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 24px}
+.chip{border:1px solid var(--line);padding:.35em .9em;border-radius:99px;font:inherit;font-size:.9rem;background:var(--card);color:var(--ink)}
+button.chip{cursor:pointer}.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tag{font-size:.8rem;font-weight:600;color:var(--accent)}
+.note{border-left:4px solid var(--accent);background:var(--card);padding:14px 18px;margin:24px 0;max-width:70ch;color:var(--mute)}
+ol.steps{list-style:none;counter-reset:s;max-width:720px}
+ol.steps li{counter-increment:s;display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+ol.steps li::before{content:counter(s);font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;font-size:1.8rem;color:var(--accent);min-width:2ch;line-height:1}
+.split{display:grid;gap:32px;grid-template-columns:1fr 1fr;align-items:start}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.dream label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.dream input,.dream select{font:inherit;background:var(--card);color:var(--ink);border:1px solid var(--line);padding:.4em .6em;border-radius:2px}
+.dream input[type=color]{padding:0;width:48px;height:32px}
+.stage{background:var(--deep);padding:24px;position:sticky;top:80px}.stage svg{width:100%;height:auto;display:block}
+input.search{font:inherit;width:100%;max-width:420px;padding:.7em 1em;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:2px;margin-bottom:12px}
+footer{background:var(--deep);color:var(--deep-mute);padding:48px 0 32px;font-size:.92rem}
+footer .cols{display:grid;gap:28px;grid-template-columns:2fr 1fr 1fr 1fr}@media(max-width:860px){footer .cols{grid-template-columns:1fr 1fr}}
+footer a{display:block;text-decoration:none;padding:3px 0}footer .logo{color:var(--on-deep)}footer .logo i{color:var(--hl)}
+.slides{position:relative;overflow:hidden;background:var(--ph);width:100%}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.07);transition:opacity .9s ease,transform 1.6s ease}
+.slide.on{opacity:1;transform:none}
+.dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:8px;z-index:2}
+.dots button{width:28px;height:4px;border:0;background:rgba(255,255,255,.45);cursor:pointer;padding:0}.dots button.on{background:#fff}
+.sl-h{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:20px}.sl-h h2{margin:0}
+.sl-b{display:flex;gap:8px}.sl-b button{width:44px;height:44px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.2rem;cursor:pointer;border-radius:2px}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}.track::-webkit-scrollbar{display:none}
+.wk{flex:0 0 min(78%,300px);scroll-snap-align:start;text-decoration:none;display:block}
+.wk .ph,.wk img{aspect-ratio:4/5;object-fit:cover;width:100%;display:block}.wk b{display:block;margin-top:8px}
+.wk.more{display:grid;place-items:center;aspect-ratio:4/5;background:var(--deep);color:var(--on-deep);font-size:2.4rem;text-align:center;padding:20px}
+@media(prefers-reduced-motion:reduce){.slide{transition:none;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#/">OFF<i>side</i></a>
+<nav id="nav"></nav>
+<div class="r"><button id="tg" class="tgl" type="button"></button><button id="mb" aria-expanded="false" aria-controls="nav">Menu</button></div>
+</div></header>
+<main id="app"></main>
+<footer><div class="wrap"><div class="cols" id="foot"></div></div></footer>
+
+<script>
+/* ============ SETTINGS — edit these first ============ */
+const WA = '8801615898207';              // WhatsApp number (no +)
+const MESSENGER = 'm.me/1219459291257259';                    // e.g. 'https://m.me/yourpagename' — button hides if empty
+const FB_NAME = 'OFFside Jerseys';       // Facebook page name
+const MOQ = 10;                          // Bangladesh minimum order (pieces)
+const SLOGAN = 'Your Team - Your Identity - Your Jersey';
+
+/* ============ HELPERS ============ */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const wa = m => `https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
+const cta = (m, l = 'Talk to OFFside', c = 'btn') => `<a class="${c}" href="${wa(m)}" target="_blank" rel="noopener">${l}</a>`;
+const ph = (l, r = '4/5') => `<div class="ph" style="aspect-ratio:${r}"><span>${esc(l)}</span></div>`;
+const chips = a => `<div class="chips">${a.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div>`;
+const sec = (t, body, cls = '') => `<section class="${cls}"><div class="wrap">${t ? `<h2>${t}</h2>` : ''}${body}</div></section>`;
+const page = (t, intro, body) => sec(`${t}`, `<p>${intro}</p>${body}`);
+const finalCta = (m = 'Hi OFFside, I need a custom jersey.') => sec('Tell us what you need', `<p>A rough idea is enough. Send a design, a reference photo, a quantity or just a question.</p><br>${cta(m)} &nbsp&nbsp;<i class="fab fa-whatsapp"></i><span style="border:1px solid #000; color:#25d366; ">Contact WhatsApp: +8801615898207</span>`, 'alt');
+
+/* ============ CONTENT DATA — edit freely ============ */
+const FABRICS = ['Microfiber PP','Box Mesh','Chinigura Mesh','Thai Mesh','Honeycomb','Lurex','Jacquard','Pindot'];
+const OPTIONS = {
+  'Fabrics': FABRICS.map(f => f === 'Jacquard' ? 'Jacquard (multiple varieties)' : f),
+  'Construction': ['One-part','Two-part','Four-part'],
+  'Collars': ['Round neck','Polo collar','V-neck','Other variations on request'],
+  'Sleeves': ['Half sleeve','Full sleeve'],
+  'Printing': ['Sublimation','DTF'],
+  'Personalization': ['Player name','Player number','Team logo','Sponsor logo','Collar, rib and cuff changes','Additional sewing','Small pattern modifications where feasible'],
+  'With the jersey': ['Shorts / pants','Goalkeeper or special jersey in the same order']
+};
+const APPAREL = ['T-shirts','Polos','Dropshoulder shirts','Pants','Trousers','Hoodies'];
+const MFG = [
+  ['Cutting','Garments are cut in-house. We can also cut and sew when you supply the fabric.'],
+  ['Sewing','Jerseys, polos, tees, dropshoulders, pants, trousers, hoodies and other garments our setup supports.'],
+  ['Sublimation','Full-colour printing for team, company, event and rally apparel.'],
+  ['DTF','Logos, names, numbers and smaller custom applications.'],
+  ['Customization','Collar, rib and cuff changes, additional sewing, sponsor logos, small pattern changes.']
+];
+const STEPS = ['You contact us and we talk through what you need.','We explain the options that fit your order and share suitable fabrics.','You send a design or reference.','We prepare a ready-to-print file.','You confirm the file before printing.','We collect names, numbers, sizes and customizations.','Advance payment is collected before manufacturing starts.','We make your order and keep you updated.','Your order is delivered and the remaining payment is collected.','If something is wrong, we verify the issue and send a replacement where appropriate.'];
+const LAB = [
+  {k:'jersey-dna',n:'Jersey DNA',s:'Answer a few questions and get your jersey profile.',st:'Needs sports database',needs:['Sport selection','Preference questions (competition, era, colours, classic vs modern, minimal vs graphic)','Deterministic scoring and predefined result profiles','Shareable result card and share URL']},
+  {k:'jersey-history',n:'Jersey History',s:'Browse how a team’s jersey changed over time.',st:'Needs sports database',needs:['Team / competition / season selectors','Timeline and jersey sequence','Verified design notes with sources','Shareable history result']},
+  {k:'jersey-battle',n:'Jersey Battle',s:'Two jerseys. Pick one.',st:'Needs sports database',needs:['Battle categories (teams, competitions, eras, kit types)','Jersey A / B pairing','Vote and result display','Shareable result']},
+  {k:'dream-jersey',n:'Dream Jersey',s:'Design your own jersey and see it live.',st:'Playable draft'},
+  {k:'ai-jersey-try-on',n:'AI Jersey Try-On',s:'Planned for later. Not available yet.',st:'Coming soon'}
+];
+/* Add image paths/URLs in src ('' shows a placeholder). Hero = rotating slideshow, WORK = home slider. */
+const HERO = [1,2,3,4,5].map(i => ({src:'', label:'Hero image ' + i + ' — add jersey photo'}));
+const WORK = [1,2,3,4,5,6].map(i => ({src:'', label:'Design ' + i, name:'Project ' + i}));
+const slide = x => x.src ? `<img class="slide" src="${esc(x.src)}" alt="${esc(x.label)}">` : `<div class="slide ph"><span>${esc(x.label)}</span></div>`;
+const SPORTS = ['Football','Cricket','Basketball'];
+let sport = 'Football';
+
+/* ============ JERSEY SVG (used by hero + Dream Jersey) ============ */
+const jersey = (o, id = 'j') => {
+  const {b,s,t,a,p,n,u} = o;
+  const pat = p === 'stripes' ? [0,1,2,3,4].map(i => `<rect x="${80+i*31.2}" y="0" width="15" height="320" fill="${a}"/>`).join('')
+    : p === 'hoops' ? [0,1,2,3].map(i => `<rect x="60" y="${90+i*50}" width="180" height="22" fill="${a}"/>`).join('')
+    : p === 'half' ? `<rect x="150" y="0" width="90" height="320" fill="${a}"/>` : '';
+  const body = 'M95 20Q150 55 205 20L228 40V300Q150 312 72 300V40Z';
+  const f = 'font-family="Big Shoulders Display,Impact,sans-serif" font-weight="800" text-anchor="middle"';
+  return `<svg viewBox="0 0 300 330" role="img" aria-label="Jersey preview"><defs><clipPath id="${id}"><path d="${body}"/></clipPath></defs>
+<path d="M95 20L55 35L10 95L50 125L72 100V40Z" fill="${s}"/><path d="M205 20L245 35L290 95L250 125L228 100V40Z" fill="${s}"/>
+<path d="${body}" fill="${b}"/><g clip-path="url(#${id})">${pat}</g>
+<path d="M95 20Q150 55 205 20" fill="none" stroke="${t}" stroke-width="7"/>
+<text x="150" y="96" ${f} font-size="24" letter-spacing="2" fill="${t}">${esc(n)}</text>
+<text x="150" y="200" ${f} font-size="100" fill="${t}">${esc(u)}</text></svg>`;
+};
+const D = {b:'#0E1A33',s:'#C8302E',t:'#F2F2EF',a:'#C8302E',p:'stripes',n:'YOUR NAME',u:'10'};
+const dreamMsg = () => `Hi OFFside, I designed a jersey in the Lab (${D.p} pattern, name "${D.n}", number ${D.u}; body ${D.b}, sleeves ${D.s}, trim ${D.t}). I want something like this.`;
+
+/* ============ PAGES ============ */
+const R = {};
+R['home'] = () => `
+<section class="hero"><div class="wrap"><div>
+<h1><span>Your team</span><span>Your identity</span><span>Your jersey</span></h1>
+<p>OFFside is a custom apparel manufacturer. Start with customized jerseys, minimum order ${MOQ} pieces.</p>
+${cta('Hi OFFside, I’m interested in customized jerseys.')} &nbsp; <a class="btn ghost" href="#/work">See our work</a>
+</div><div class="slides" id="hs" style="aspect-ratio:4/5">${HERO.map(slide).join('')}<div class="dots">${HERO.map((_,i) => `<button aria-label="Show image ${i+1}"></button>`).join('')}</div></div></div></section>
+${sec('', `<div class="sl-h"><h2>Selected work</h2><div class="sl-b"><button data-slide="-1" aria-label="Previous">‹</button><button data-slide="1" aria-label="Next">›</button></div></div><div class="track" id="wt">${WORK.map(w => `<a class="wk" href="#/work">${w.src ? `<img src="${esc(w.src)}" alt="${esc(w.name)}">` : ph(w.label)}<b>${esc(w.name)}</b></a>`).join('')}<a class="wk more" href="#/work"><span class="disp">View more</span></a></div>`)}
+${sec('One production system', `<p>The same cutting, sewing, printing and customization setup makes jerseys for any sport, team, company or event.</p><br><div class="grid">${MFG.slice(0,4).map(m => `<div class="card"><h3>${m[0]}</h3><p>${m[1]}</p></div>`).join('')}</div><br><a class="btn ghost" href="#/manufacturing">How we make it</a>`, 'alt')}
+${sec('Fabrics', `<p>Real fabric close-ups, so you can choose by look and feel.</p>${chips(FABRICS)}<a class="btn ghost" href="#/fabrics">Browse fabrics</a>`)}
+${sec('Also on the floor', `<div class="grid"><div class="card"><h3>Design library</h3><p>Browse previous designs and ask for something similar.</p><a class="btn ghost" href="#/designs">Open library</a></div><div class="card"><h3>Process</h3><p>From first message to delivery.</p><a class="btn ghost" href="#/process">See the steps</a></div><div class="card"><h3>Proof</h3><p>Reviews and real finished orders.</p><a class="btn ghost" href="#/proof">See proof</a></div><div class="card"><h3>Lab</h3><p>Play with jerseys. Design your own.</p><a class="btn ghost" href="#/lab">Enter the Lab</a></div></div>`, 'alt')}
+${finalCta()}`;
+
+R['jerseys'] = () => page('Jerseys', 'Customized jerseys are what we make best. Pick the options below, or just send us your idea.',
+`<div class="grid l">${Object.entries(OPTIONS).map(([k,v]) => `<div class="card"><h3>${k}</h3>${chips(v)}</div>`).join('')}</div>
+<div class="note">Minimum order in Bangladesh: <b>${MOQ} pieces</b>. Pricing depends on your configuration, so ask us for a quote.</div>
+<div class="grid">${[1,2,3,4].map(i => ph('Jersey example ' + i)).join('')}</div><br>
+${cta('Hi OFFside, I’m interested in customized jerseys.')}`);
+
+R['apparel'] = () => page('Apparel', 'Jerseys are our front door. The same production system makes other garments too.',
+`<div class="grid">${APPAREL.map(a => `<div class="card">${ph(a + ' — add photo','4/3')}<h3>${a}</h3>${cta(`Hi OFFside, I’m interested in ${a.toLowerCase()}.`, 'Ask about this', 'btn ghost')}</div>`).join('')}</div>
+<div class="note">Add only garments your current production setup supports.</div>`);
+
+R['manufacturing'] = () => page('Manufacturing', 'Cutting, sewing, printing and customization under one roof. Replace the slots with real photos and video.',
+`<div class="grid l">${MFG.map(m => `<div class="card"><h3>${m[0]}</h3><p>${m[1]}</p>${ph(m[0] + ' — add photo or video','16/9')}</div>`).join('')}
+<div class="card"><h3>Quality control</h3><p>Add a short, true description of your checks.</p>${ph('Quality control — add photo','16/9')}</div></div>
+<br>${cta('Hi OFFside, I want to ask about manufacturing.')}`);
+
+R['fabrics'] = () => page('Fabrics', 'Fabric details will be added once verified. Texture photos go in the slots.',
+`<div class="grid">${FABRICS.map(f => `<div class="card">${ph(f + ' — texture photo','1/1')}<h3><a href="/fabrics/${f.toLowerCase().replace(/[^a-z0-9]+/g,'-')}">${f}</a></h3><p>Add what you can verify: look, feel, best uses.</p>${cta(`Hi OFFside, I’m interested in the ${f} fabric.`, 'Ask about this', 'btn ghost')}</div>`).join('')}</div>`);
+
+R['work'] = () => page('Selected work', 'A short, curated set. You rank it, strongest first.',
+`<div class="grid l">${[1,2,3,4,5,6].map(i => `<div>${ph('Project ' + i + ' — add photo','4/3')}</div>`).join('')}</div>`);
+
+R['designs'] = () => page('Design library', 'Browse previous designs. Found one you like? Ask for something similar.',
+`<input class="search" id="dsearch" placeholder="Search designs" aria-label="Search designs">
+${chips(['All sports','All apparel','All colours','All styles'])}
+<div class="grid" id="dgrid">${Array.from({length:12},(_,i) => { const id = '#' + String(i+1).padStart(4,'0'); return `<div class="card dcard" data-t="design ${id}">${ph('Design ' + id,'1/1')}<b>Design ${id}</b>${cta(`Hi OFFside, I want something like Design ${id}.`, 'Want something like this?', 'btn ghost')}</div>`; }).join('')}</div>
+<div class="note">Before showing a customer’s design, logo or name here, make sure you have permission.</div>`);
+
+R['process'] = () => page('Process', 'A conversation, not a form.', `<ol class="steps">${STEPS.map(s => `<li><span>${s}</span></li>`).join('')}</ol><br>${cta('Hi OFFside, I’d like to start an order.')}`);
+
+R['proof'] = () => page('Proof', 'Real work, real reviews. Only add what you can back up.',
+`<div class="grid l"><div class="card"><h3>Customer reviews</h3>${ph('Review screenshots','16/9')}</div><div class="card"><h3>Finished orders</h3>${ph('Finished order photos','16/9')}</div><div class="card"><h3>Production</h3>${ph('Production photos and video','16/9')}</div><div class="card"><h3>Design to finished product</h3>${ph('Before and after','16/9')}</div></div>
+<div class="note">Get customer permission before publishing reviews, names or logos.</div>`);
+
+R['about'] = () => page('About', 'OFFside is a custom apparel manufacturer. Customized jerseys are where we start.',
+`<div class="split"><div><p>Add your story here: who you are, where you work and what you make. Keep it to what is true and provable.</p><br>${cta('Hi OFFside, I’d like to know more about you.')}</div>${ph('Workshop or team photo','4/3')}</div>`);
+
+R['contact'] = () => page('Contact', 'Tell us what you need in your own words. No form to fill.',
+`<div class="grid l"><div class="card"><h3>WhatsApp</h3><p>+${WA}</p>${cta('Hi OFFside, I need some help.', 'Message on WhatsApp')}</div>
+<div class="card"><h3>Facebook</h3><p>${esc(FB_NAME)}</p>${MESSENGER ? `<a class="btn" href="${MESSENGER}" target="_blank" rel="noopener">Message on Messenger</a>` : '<p>Add your Messenger link in the settings at the top of the file.</p>'}</div></div>`);
+
+R['lab'] = () => page('Lab', 'Play with jerseys. Pick a sport first — it changes the teams, eras and options you see.',
+`<div class="chips" id="sports">${SPORTS.map(s => `<button class="chip ${s === sport ? 'on' : ''}" data-sport="${s}">${s}</button>`).join('')}</div>
+<div class="grid l">${LAB.map(l => `<a class="card" href="#/lab/${l.k}" style="text-decoration:none"><span class="tag">${l.st}</span><h3>${l.n}</h3><p>${l.s}</p></a>`).join('')}</div>
+<div class="note">Jersey DNA, History and Battle need the sports and jersey database before they can run. No AI is used in the Lab.</div>`);
+
+LAB.forEach(l => R['lab/' + l.k] = () => {
+  const head = `<a href="#/lab">← Lab</a><br><br>`;
+  if (l.k === 'dream-jersey') return sec('Dream Jersey', `${head}<div class="split dream"><div class="stage" id="stage">${jersey(D,'dj')}</div><div id="ctrl">
+  <p>Draft preview. This is not a quote or an order.</p><br>
+  <label>Body <input type="color" data-k="b" value="${D.b}"></label><label>Sleeves <input type="color" data-k="s" value="${D.s}"></label>
+  <label>Trim and text <input type="color" data-k="t" value="${D.t}"></label><label>Pattern colour <input type="color" data-k="a" value="${D.a}"></label>
+  <label>Pattern <select data-k="p"><option value="plain">Plain</option><option value="stripes" selected>Stripes</option><option value="hoops">Hoops</option><option value="half">Half and half</option></select></label>
+  <label>Name <input data-k="n" maxlength="14" value="${D.n}"></label><label>Number <input data-k="u" maxlength="2" value="${D.u}"></label><br>
+  <a class="btn" id="dcta" href="${wa(dreamMsg())}" target="_blank" rel="noopener">Make something like this</a></div></div>`);
+  if (l.k === 'ai-jersey-try-on') return sec(l.n, `${head}<span class="tag">Coming soon</span><p>A future way to see a jersey on you. Nothing to upload or generate yet.</p>`);
+  return sec(l.n, `${head}<span class="tag">${l.st}</span><p>${l.s}</p><div class="note"><b>To build this:</b><ul style="margin:8px 0 0 18px">${l.needs.map(n => `<li>${n}</li>`).join('')}</ul></div>${cta(`Hi OFFside, I came from ${l.n} and want to discuss a custom jersey.`)}`);
+});
+
+/* ============ ROUTER + SHELL ============ */
+const NAV = [['home','Home'],['work','Work'],['jerseys','Jerseys'],['apparel','Apparel'],['manufacturing','Manufacturing'],['fabrics','Fabrics'],['lab','Lab']];
+const nav = document.getElementById('nav'), app = document.getElementById('app'), mb = document.getElementById('mb');
+nav.innerHTML = NAV.map(([k,l]) => `<a href="#/${k === 'home' ? '' : k}" data-k="${k}">${l}</a>`).join('') + cta('Hi OFFside, I need a custom jersey.', 'Contact WhatsApp');
+document.getElementById('foot').innerHTML = `<div><a class="logo" href="#/">OFF<i>side</i></a><p style="color:var(--deep-mute);margin-top:8px">${SLOGAN}</p></div>
+<div>${['jerseys','apparel','work','designs'].map(k => `<a href="#/${k}">${k === 'designs' ? 'Design library' : k[0].toUpperCase() + k.slice(1)}</a>`).join('')}</div>
+<div>${['fabrics','manufacturing','process','proof'].map(k => `<a href="#/${k}">${k[0].toUpperCase() + k.slice(1)}</a>`).join('')}</div>
+<div><a href="#/about">About</a><a href="#/contact">Contact</a><a href="#/lab">Lab</a><a href="${wa('Hi OFFside')}" target="_blank" rel="noopener">WhatsApp</a><span>© OFFside</span></div>`;
+let timers = [];
+function initSliders() {
+  timers.forEach(clearInterval); timers = [];
+  const hs = document.getElementById('hs');
+  if (hs) {
+    const sl = hs.querySelectorAll('.slide'), dt = hs.querySelectorAll('.dots button'); let i = 0;
+    const show = n => { i = (n + sl.length) % sl.length; sl.forEach((e, j) => e.classList.toggle('on', j === i)); dt.forEach((e, j) => e.classList.toggle('on', j === i)); };
+    dt.forEach((e, j) => e.onclick = () => show(j));
+    show(0); timers.push(setInterval(() => show(i + 1), 4500));
+  }
+  const tr = document.getElementById('wt');
+  if (tr) document.querySelectorAll('[data-slide]').forEach(b => b.onclick = () => tr.scrollBy({left: +b.dataset.slide * (tr.firstElementChild.offsetWidth + 16), behavior: 'smooth'}));
+}
+function route() {
+  const h = (location.hash || '#/').slice(2) || 'home', k = R[h] ? h : 'home';
+  app.innerHTML = R[k]();
+  document.title = (k === 'home' ? '' : k.split('/').pop().replace(/-/g,' ') + ' — ') + 'OFFside';
+  nav.querySelectorAll('a[data-k]').forEach(a => a.classList.toggle('on', a.dataset.k === k.split('/')[0]));
+  initSliders();
+  nav.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', route);
+mb.onclick = () => mb.setAttribute('aria-expanded', nav.classList.toggle('open'));
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-sport]'); if (!b) return;
+  sport = b.dataset.sport; document.querySelectorAll('#sports .chip').forEach(c => c.classList.toggle('on', c === b));
+});
+document.addEventListener('input', e => {
+  if (e.target.id === 'dsearch') { const q = e.target.value.toLowerCase(); document.querySelectorAll('.dcard').forEach(c => c.style.display = c.dataset.t.includes(q) ? '' : 'none'); return; }
+  const k = e.target.dataset && e.target.dataset.k; if (!k || !e.target.closest('#ctrl')) return;
+  D[k] = k === 'n' ? e.target.value.toUpperCase() : e.target.value;
+  document.getElementById('stage').innerHTML = jersey(D, 'dj');
+  document.getElementById('dcta').href = wa(dreamMsg());
+});
+const tg = document.getElementById('tg');
+function setTheme(t) {
+  if (t === 'light') document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
+  tg.textContent = t === 'light' ? 'Signature' : 'Light mode';
+  try { localStorage.setItem('ofs-theme', t); } catch (e) {}
+}
+tg.onclick = () => setTheme(document.documentElement.dataset.theme === 'light' ? 'signature' : 'light');
+let saved = ''; try { saved = localStorage.getItem('ofs-theme'); } catch (e) {}
+setTheme(saved === 'light' ? 'light' : 'signature');
+route();
+/* Live data from the server (does nothing if the API isn't there) */
+fetch('/api/work').then(r => r.json()).then(d => {
+  if (d.length) { WORK.splice(0, WORK.length, ...d.map(w => ({src: w.image, label: w.title, name: w.title}))); route(); }
+}).catch(() => {});
+</script>
+</body>
+</html>
